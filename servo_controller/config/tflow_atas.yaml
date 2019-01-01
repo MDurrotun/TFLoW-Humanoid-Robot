@@ -1,0 +1,103 @@
+joint13_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint_perut_pitch
+    joint_speed: 0.5
+    motor:
+        id: 13
+        init: 2056
+        min: 1485
+        max: 2625
+
+joint14_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: joint_perut_roll
+    joint_speed: 0.5
+    motor:
+        id: 14
+        init: 1922
+        min: 685
+        max: 2575
+
+joint15_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tangan_kanan_roll
+    joint_speed: 0.5
+    motor:
+        id: 15
+        init: 2313
+        min: 1024
+        max: 3870
+
+joint16_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tangan_kiri_roll
+    joint_speed: 0.5
+    motor:
+        id: 16
+        init: 1595
+        min: 237
+        max: 3072
+
+joint17_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tangan_kanan_pitch
+    joint_speed: 0.5
+    motor:
+        id: 17
+        init: 1200
+        min: 1200
+        max: 2540
+
+joint18_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: tangan_kiri_pitch
+    joint_speed: 0.5
+    motor:
+        id: 18
+        init: 2907
+        min: 1360
+        max: 2907
+
+joint19_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: kepala_yaw
+    joint_speed: 0.5
+    motor:
+        id: 19
+        init: 2048
+        min: 1024
+        max: 3079
+
+joint20_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: kepala_roll
+    joint_speed: 0.5
+    motor:
+        id: 20
+        init: 2050
+        min: 1030 
+        max: 2740

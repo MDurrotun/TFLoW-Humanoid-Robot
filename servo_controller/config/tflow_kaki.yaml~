@@ -1,0 +1,155 @@
+joint1_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: engkle_kanan_pitch
+    joint_speed: 0.5
+    motor:
+        id: 1
+        init: 2024
+        min: 1720
+        max: 2341
+
+joint2_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: engkle_kiri_pitch
+    joint_speed: 0.5
+    motor:
+        id: 2
+        init: 2069
+        min: 1720
+        max: 2341
+
+joint3_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: engkle_kanan_roll
+    joint_speed: 0.5
+    motor:
+        id: 3
+        init: 2049
+        min: 1376
+        max: 2513
+
+joint4_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: engkle_kiri_roll
+    joint_speed: 0.5
+    motor:
+        id: 4
+        init: 2075
+        min: 1656
+        max: 2906
+
+joint5_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: lutut_kanan_roll
+    joint_speed: 0.5
+    motor:
+        id: 5
+        init: 2201
+        min: 516
+        max: 2850
+
+joint6_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: lutut_kiri_roll
+    joint_speed: 0.5
+    motor:
+        id: 6
+        init: 1936
+        min: 1255
+        max: 3585
+
+joint7_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: hip_kanan_roll
+    joint_speed: 0.5
+    motor:
+        id: 7
+        init: 2300
+        min: 1700
+        max: 3029
+
+joint8_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: hip_kiri_roll
+    joint_speed: 0.5
+    motor:
+        id: 8
+        init: 1771
+        min: 1052
+        max: 2342
+
+joint9_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: hip_kanan_pitch
+    joint_speed: 0.5
+    motor:
+        id: 9
+        init: 2040
+        min: 1801
+        max: 2071
+
+joint10_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: hip_kiri_pitch
+    joint_speed: 0.5
+    motor:
+        id: 10
+        init: 2079
+        min: 2001
+        max: 2278
+
+joint11_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: hip_kanan_yaw
+    joint_speed: 0.5
+    motor:
+        id: 11
+        init: 1032
+        min: 688
+        max: 1368
+
+joint12_controller:
+    controller:
+        package: dynamixel_controllers
+        module: joint_position_controller
+        type: JointPositionController
+    joint_name: hip_kiri_yaw
+    joint_speed: 0.5
+    motor:
+        id: 12
+        init: 512
+        min: 176
+        max: 858
