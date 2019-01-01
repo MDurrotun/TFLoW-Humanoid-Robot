@@ -1,0 +1,1212 @@
+<?xml version="1.0"?>
+    <robot name="EROS">
+      <link name="base_link">
+        <visual>
+          <geometry>
+            <box size="0.042 0.061 0.042"/>
+          </geometry>
+          <origin rpy="0 0 0" xyz="0 0 0"/>
+          <material name="silver">
+            <color rgba="0.5 0.5 0.5 1"/>
+          </material>
+        </visual>
+        <collision>
+            <geometry>
+              <box size="0.042 0.061 0.042"/>
+            </geometry>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+        </collision>
+        <inertial>
+        <mass value="1"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+      </link>
+
+    <link name="perut">
+      <visual>
+        <geometry>
+          <box size="0.142 0.061 0.11"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0.0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.142 0.042 0.11"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0.031"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="leher">
+      <visual>
+        <geometry>
+          <box size="0.0402 0.061 0.041"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+          <geometry>
+            <box size="0.0402 0.061 0.041"/>
+          </geometry>
+          <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="0.126"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <!-- Leher - Kepala -->
+
+    <link name="servo_leher_y">
+    <visual>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="kepala">
+    <visual>
+      <geometry>
+        <box size="0.088 0.020 0.037"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.046"/>
+      <material name="black">
+        <color rgba="0.3 0.3 0.3 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.088 0.020 0.037"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.046"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="kamera">
+    <visual>
+      <geometry>
+        <cylinder length="0.02" radius="0.015"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.01"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.01" radius="0.025"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <!-- Leher - Kepala End -->
+
+    <!-- Tangan Kanan -->
+
+    <link name="servo_bahu_roll_kanan">
+    <visual>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="link_servo_bahu_kanan">
+    <visual>
+      <geometry>
+        <cylinder length="0.03" radius="0.02"/>
+      </geometry>
+      <origin rpy="-0.758 0 1.57" xyz="0.0 0 -0.01"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.03" radius="0.015"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="servo_bahu_pitch_kanan">
+    <visual>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 1.57" xyz="0.03 0 0"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="link_siku_kanan">
+    <visual>
+      <geometry>
+        <box size="0.030 0.07 0.030"/>
+      </geometry>
+      <origin rpy="0 0 1.57" xyz="0.035 0 0"/>
+      <material name="silver">
+        <color rgba="0.7 0.7 0.7 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="servo_siku_pitch_kanan">
+    <visual>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 1.57" xyz="0.03 0 0"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 1.57" xyz="0.0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="lengan_bawah_kanan">
+    <visual>
+      <geometry>
+        <box size="0.0402 0.135 0.021"/>
+      </geometry>
+      <origin rpy="0 0 1.57" xyz="0.0675 0 0.01"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.135 0.041"/>
+      </geometry>
+      <origin rpy="0 0 1.57" xyz="0.0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="ujung_tangan_kanan">
+    <visual>
+      <geometry>
+        <cylinder length="0.02" radius="0.015"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.01" radius="0.025"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <!-- Tangan Kanan End -->
+
+    <!-- Tangan Kiri -->
+
+    <link name="servo_bahu_roll_kiri">
+    <visual>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="link_servo_bahu_kiri">
+    <visual>
+      <geometry>
+        <cylinder length="0.03" radius="0.02"/>
+      </geometry>
+      <origin rpy="0.758 0 1.57" xyz="0.0 0 -0.01"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.03" radius="0.015"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="servo_bahu_pitch_kiri">
+    <visual>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 -1.57" xyz="-0.03 0 0"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="link_siku_kiri">
+    <visual>
+      <geometry>
+        <box size="0.030 0.07 0.030"/>
+      </geometry>
+      <origin rpy="0 0 -1.57" xyz="-0.035 0 0"/>
+      <material name="silver">
+        <color rgba="0.7 0.7 0.7 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.030 0.07 0.030"/>
+      </geometry>
+      <origin rpy="0 0 -1.57" xyz="-0.035 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="servo_siku_pitch_kiri">
+    <visual>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 -1.57" xyz="-0.03 0 0"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.061 0.041"/>
+      </geometry>
+      <origin rpy="0 0 -1.57" xyz="0.0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="lengan_bawah_kiri">
+    <visual>
+      <geometry>
+        <box size="0.0402 0.135 0.021"/>
+      </geometry>
+      <origin rpy="0 0 1.57" xyz="-0.0675 0 0.01"/>
+      <material name="silver">
+        <color rgba="0.5 0.5 0.5 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.0402 0.135 0.041"/>
+      </geometry>
+      <origin rpy="0 0 1.57" xyz="-0.0675 0 0.01"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+    <link name="ujung_tangan_kiri">
+    <visual>
+      <geometry>
+        <cylinder length="0.02" radius="0.015"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="blue">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+        <cylinder length="0.01" radius="0.025"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+        <mass value="0.126"/>
+        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+    </link>
+
+
+    <!-- Tangan Kiri End -->
+
+    <joint name="leher_to_base" type="fixed">
+        <parent link="base_link"/>
+        <child link="leher"/>
+        <origin xyz="0 0 0.162"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <joint name="perut_to_base" type="fixed">
+        <parent link="base_link"/>
+        <child link="perut"/>
+        <origin xyz="0 0 0.080"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+
+    <!-- Kaki Kanan -->
+
+    <link name="servo_hip_yaw_kanan">
+      <visual>
+        <geometry>
+          <box size="0.042 0.061 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_hip_pitch_kanan">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 -0.03 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_hip_roll_kanan">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="link_paha_kanan">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.08"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 -0.02"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.08"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 -0.03"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_lutut_kanan">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="link_betis_kanan">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.12"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 -0.05"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 11"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.1"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 -0.03"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_engkle_roll_kanan">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_engkle_pitch_kanan">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="telapak_kaki_kanan">
+      <visual>
+        <geometry>
+          <box size="0.095 0.120 0.003"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0.0170 0 -0.056"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.095 0.115 0.003"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0.0170 0 -0.056"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="telapak_kaki_kanan_eof">
+      <visual>
+        <geometry>
+          <box size="0.095 0.003 0.020"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0.0170 0.06 0.01"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.095 0.115 0.003"/>
+        </geometry>
+         <origin rpy="0 0 0" xyz="0.0170 0.06 0.01"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <!-- Kaki Kanan -->
+
+    <!-- Kaki Kiri -->
+
+    <link name="servo_hip_yaw_kiri">
+      <visual>
+        <geometry>
+          <box size="0.042 0.061 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_hip_pitch_kiri">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 -0.03 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_hip_roll_kiri">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="link_paha_kiri">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.08"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 -0.02"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.08"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 -0.02"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_lutut_kiri">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.042"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="link_betis_kiri">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.12"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 -0.05"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 11"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.12"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 -0.03"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_engkle_roll_kiri">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="servo_engkle_pitch_kiri">
+      <visual>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.042 0.042 0.061"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="telapak_kaki_kiri">
+      <visual>
+        <geometry>
+          <box size="0.095 0.120 0.003"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="-0.0170 0 -0.056"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.095 0.115 0.003"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="0 0 -0.056"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <link name="telapak_kaki_kiri_eof">
+      <visual>
+        <geometry>
+          <box size="0.095 0.003 0.020"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="-0.0170 0.06 0.01"/>
+        <material name="silver">
+          <color rgba="0.5 0.5 0.5 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <box size="0.095 0.115 0.003"/>
+        </geometry>
+        <origin rpy="0 0 0" xyz="-0.0170 0.06 0.01"/>
+      </collision>
+      <inertial>
+          <mass value="1"/>
+          <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+      </inertial>
+    </link>
+
+    <!-- Kaki Kiri -->
+
+    <!-- Revolute -->
+    <joint name="1.bahu_kanan_roll" type="revolute">
+        <parent link="servo_bahu_roll_kanan"/>
+        <child link="link_servo_bahu_kanan"/>
+        <origin rpy="0 0 0" xyz="0.030 0 0"/>
+        <axis xyz="1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="2.bahu_kiri_roll" type="revolute">
+        <parent link="servo_bahu_roll_kiri"/>
+        <child link="link_servo_bahu_kiri"/>
+        <origin rpy="0 0 0" xyz="-0.030 0 0"/>
+        <axis xyz="-1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="3.bahu_kanan_pitch" type="revolute">
+        <parent link="link_servo_bahu_kanan"/>
+        <child link="servo_bahu_pitch_kanan"/>
+        <origin rpy="0 0 0" xyz="0.010 0 -0.015"/>
+        <axis xyz="0 -1 0" />
+        <limit effort="300" velocity="0.1" lower="-2" upper="2"/>
+    </joint>
+
+    <joint name="4.bahu_kiri_pitch" type="revolute">
+        <parent link="link_servo_bahu_kiri"/>
+        <child link="servo_bahu_pitch_kiri"/>
+        <origin rpy="0 0 0" xyz="-0.010 0 -0.015"/>
+        <axis xyz="0 -1 0" />
+        <limit effort="300" velocity="0.1" lower="-2.0" upper="2.0"/>
+    </joint>
+
+    <joint name="5.siku_kanan_yaw" type="revolute">
+        <parent link="link_siku_kanan"/>
+        <child link="servo_siku_pitch_kanan"/>
+        <origin rpy="0 0 0" xyz="0.070 0 0."/>
+        <axis xyz="0 0 -1" />
+        <limit effort="300" velocity="0.1" lower="-2.7" upper="1.28"/>
+    </joint>
+
+    <joint name="6.siku_kiri_yaw" type="revolute">
+        <parent link="link_siku_kiri"/>
+        <child link="servo_siku_pitch_kiri"/>
+        <origin rpy="0 0 0" xyz="-0.070 0 0."/>
+        <axis xyz="0 0 -1" />
+        <limit effort="300" velocity="0.1" lower="-1.28" upper="2.7"/>
+    </joint>
+
+    <joint name="7.hip_kanan_yaw" type="revolute">
+        <parent link="servo_hip_yaw_kanan"/>
+        <child link="servo_hip_pitch_kanan"/>
+        <origin xyz="0 0 -0.060"/>
+        <axis xyz="0 0 -1" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="8.hip_kiri_yaw" type="revolute">
+        <parent link="servo_hip_yaw_kiri"/>
+        <child link="servo_hip_pitch_kiri"/>
+        <origin xyz="0 0 -0.060"/>
+        <axis xyz="0 0 -1" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="9.hip_kanan_pitch" type="revolute">
+        <parent link="servo_hip_pitch_kanan"/>
+        <child link="servo_hip_roll_kanan"/>
+        <origin xyz="0 0.02 0"/>
+        <axis xyz="0 -1 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="10.hip_kiri_pitch" type="revolute">
+        <parent link="servo_hip_pitch_kiri"/>
+        <child link="servo_hip_roll_kiri"/>
+        <origin xyz="0 0.02 0"/>
+        <axis xyz="0 -1 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="11.hip_kanan_roll" type="revolute">
+        <parent link="servo_hip_roll_kanan"/>
+        <child link="link_paha_kanan"/>
+        <origin xyz="0 0.0 0"/>
+        <axis xyz="1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="12.hip_kiri_roll" type="revolute">
+        <parent link="servo_hip_roll_kiri"/>
+        <child link="link_paha_kiri"/>
+        <origin xyz="0 0.0 0"/>
+        <axis xyz="-1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="13.lutut_kanan_roll" type="revolute">
+        <parent link="servo_lutut_kanan"/>
+        <child link="link_betis_kanan"/>
+        <origin xyz="0 0.0 -0.01"/>
+        <axis xyz="1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="14.lutut_kiri_roll" type="revolute">
+        <parent link="servo_lutut_kiri"/>
+        <child link="link_betis_kiri"/>
+        <origin xyz="0 0.0 -0.01"/>
+        <axis xyz="-1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="15.engkle_kanan_roll" type="revolute"> <!-- -->
+        <parent link="link_betis_kanan"/>
+        <child link="servo_engkle_roll_kanan"/>
+        <origin xyz="0 0.0 -0.11"/>
+        <axis xyz="-1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="16.engkle_kiri_roll" type="revolute">
+        <parent link="link_betis_kiri"/>
+        <child link="servo_engkle_roll_kiri"/>
+        <origin xyz="0 0.0 -0.11"/>
+        <axis xyz="1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="17.telapak_kaki_kanan_pitch" type="revolute">
+        <parent link="servo_engkle_pitch_kanan"/>
+        <child link="telapak_kaki_kanan"/>
+        <origin xyz="0 0.025 0"/>
+        <axis xyz="0 1 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="18.telapak_kaki_kiri_pitch" type="revolute">
+        <parent link="servo_engkle_pitch_kiri"/>
+        <child link="telapak_kaki_kiri"/>
+        <origin xyz="0 0.025 0"/>
+        <axis xyz="0 1 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>    
+
+    <joint name="19.leher_y" type="revolute">
+        <parent link= "servo_leher_y"/>
+        <child link="kepala"/>
+        <origin rpy="0 0 0" xyz="0 0 0.0 "/>
+        <axis xyz="1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+    </joint>
+
+    <joint name="20.leher_x" type="revolute">
+        <parent link="leher"/>
+        <child link="servo_leher_y"/>
+        <origin rpy="0 0 0" xyz="0 0 0.05 "/>
+        <axis xyz="0 0 1" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+
+    <!-- Tangan -->
+
+    <joint name="leher_to_bahu_kanan" type="fixed">
+        <parent link="leher"/>
+        <child link="servo_bahu_roll_kanan"/>
+        <origin rpy="0 0 0" xyz="0.051 0 0"/>
+    </joint>
+
+    <joint name="leher_to_bahu_kiri" type="fixed">
+        <parent link="leher"/>
+        <child link="servo_bahu_roll_kiri"/>
+        <origin rpy="0 0 0" xyz="-0.051 0 0"/>
+    </joint>
+
+    <joint name="link_lengan_atas_kanan" type="fixed">
+        <parent link="servo_bahu_pitch_kanan"/>
+        <child link="link_siku_kanan"/>
+        <origin rpy="0 0 0" xyz="0.061 0 0.0"/>
+    </joint>
+
+    <joint name="link_lengan_atas_kiri" type="fixed">
+        <parent link="servo_bahu_pitch_kiri"/>
+        <child link="link_siku_kiri"/>
+        <origin rpy="0 0 0" xyz="-0.061 0 0.0"/>
+    </joint>
+
+    <joint name="link_lengan_bawah_kanan" type="fixed">
+        <parent link="servo_siku_pitch_kanan"/>
+        <child link="lengan_bawah_kanan"/>
+        <origin rpy="0 0 0" xyz="0.061 0 0.0"/>
+    </joint>
+
+    <joint name="link_lengan_bawah_kiri" type="fixed">
+        <parent link="servo_siku_pitch_kiri"/>
+        <child link="lengan_bawah_kiri"/>
+        <origin rpy="0 0 0" xyz="-0.061 0 0.0"/>
+    </joint>
+
+    <joint name="tangan_kanan_eof" type="fixed">
+        <parent link="lengan_bawah_kanan"/>
+        <child link="ujung_tangan_kanan"/>
+        <origin rpy="0 0 0" xyz="0.120 0 0.0"/>
+    </joint>
+
+    <joint name="tangan_kiri_eof" type="fixed">
+        <parent link="lengan_bawah_kiri"/>
+        <child link="ujung_tangan_kiri"/>
+        <origin rpy="0 0 0" xyz="-0.120 0 0.0"/>
+    </joint>
+
+    <!-- Tangan -->
+
+
+    <!-- Kaki -->
+
+    <joint name="base_to_hip_kanan" type="fixed">
+        <parent link="base_link"/>
+        <child link="servo_hip_yaw_kanan"/>
+        <origin xyz="0.05 0 0."/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <joint name="base_to_hip_kiri" type="fixed">
+        <parent link="base_link"/>
+        <child link="servo_hip_yaw_kiri"/>
+        <origin xyz="-0.05 0 0"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <joint name="link_servo_lutut_kanan" type="fixed">
+        <parent link="link_paha_kanan"/>
+        <child link="servo_lutut_kanan"/>
+        <origin xyz="0 0.0 -0.1 "/>
+        <axis xyz="1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="link_servo_lutut_kiri" type="fixed">
+        <parent link="link_paha_kiri"/>
+        <child link="servo_lutut_kiri"/>
+        <origin xyz="0 0.0 -0.1"/>
+        <axis xyz="1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="link_servo_engkle_kanan" type="fixed">
+        <parent link="servo_engkle_roll_kanan"/>
+        <child link="servo_engkle_pitch_kanan"/>
+        <origin xyz="0 -0.051 0"/>
+        <axis xyz="1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="link_servo_engkle_kiri" type="fixed">
+        <parent link="servo_engkle_roll_kiri"/>
+        <child link="servo_engkle_pitch_kiri"/>
+        <origin xyz="0 -0.051 0"/>
+        <axis xyz="1 0 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="kaki_kanan_eof" type="fixed">
+        <parent link="telapak_kaki_kanan"/>
+        <child link="telapak_kaki_kanan_eof"/>
+        <origin xyz="0 0.0 -0.055"/>
+        <axis xyz="0 1 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <joint name="kaki_kiri_eof" type="fixed">
+        <parent link="telapak_kaki_kiri"/>
+        <child link="telapak_kaki_kiri_eof"/>
+        <origin xyz="0 0.0 -0.055"/>
+        <axis xyz="0 1 0" />
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    </joint>
+
+    <!-- Kaki-->
+
+    <!-- Leher - Kepala -->
+
+
+    <joint name="kamera_eof" type="fixed">
+        <parent link="kepala"/>
+        <child link="kamera"/>
+        <origin rpy="-1.57 1.57 0" xyz="0 0 0.046"/>
+
+    </joint>
+
+    <!-- Leher - Kepala End -->
+
+    </robot>

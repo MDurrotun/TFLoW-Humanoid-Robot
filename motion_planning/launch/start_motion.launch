@@ -1,0 +1,5 @@
+<launch>
+    <rosparam file="$(find motion_planning)/config/motion_list.er2c" command="load"/>
+    <rosparam file="$(find motion_planning)/config/action_list.er2c" command="load"/>
+    <node name="motion_control" pkg="motion_planning" type="motion_control" />
+</launch>

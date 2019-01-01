@@ -1,0 +1,1178 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="tflow_model">
+
+    <xacro:property name="dynamixel_mx28_x" value="0.0356"/>
+    <xacro:property name="dynamixel_mx28_y" value="0.0355"/>
+    <xacro:property name="dynamixel_mx28_z" value="0.0506"/>
+    <xacro:property name="dynamixel_mx28_weight" value="0.072"/>
+
+    <xacro:property name="dynamixel_mx64_x" value="0.0402"/>
+    <xacro:property name="dynamixel_mx64_y" value="0.041"/>
+    <xacro:property name="dynamixel_mx64_z" value="0.0611"/>
+    <xacro:property name="dynamixel_mx64_weight" value="0.126"/>
+
+    <xacro:property name="dynamixel_mx106_x" value="0.0402"/>
+    <xacro:property name="dynamixel_mx106_y" value="0.046"/>
+    <xacro:property name="dynamixel_mx106_z" value="0.0651"/>
+    <xacro:property name="dynamixel_mx106_weight" value="0.153"/>
+
+    <xacro:macro name="dynamixelmx28" params="roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <box size="${dynamixel_mx28_x} ${dynamixel_mx28_y} ${dynamixel_mx28_z}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="silver">
+                <color rgba="0.5 0.5 0.5 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <box size="${dynamixel_mx28_x} ${dynamixel_mx28_y} ${dynamixel_mx28_z}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${dynamixel_mx28_weight}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="dynamixelmx64" params="roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <box size="${dynamixel_mx64_x} ${dynamixel_mx64_y} ${dynamixel_mx64_z}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="silver">
+                <color rgba="0.5 0.5 0.5 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <box size="${dynamixel_mx64_x} ${dynamixel_mx64_y} ${dynamixel_mx64_z}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${dynamixel_mx64_weight}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="dynamixelmx106" params="roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <box size="${dynamixel_mx106_x} ${dynamixel_mx106_y} ${dynamixel_mx106_z}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="silver">
+                <color rgba="0.3 0.3 0.3 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <box size="${dynamixel_mx106_x} ${dynamixel_mx106_y} ${dynamixel_mx106_z}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${dynamixel_mx106_weight}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="link_cylinder" params="le r roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <cylinder length="${le}" radius="${r}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="white">
+                <color rgba="0.8 0.8 0.8 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <cylinder length="${le}" radius="${r}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${le*r}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="telapak" params="le r roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <cylinder length="${le}" radius="${r}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <cylinder length="${le}" radius="${r}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${le*r}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="link_box" params="bx by bz roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <box size="${bx} ${by} ${bz}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <box size="${bx} ${by} ${bz}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${bx*by*bz}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+    
+     <xacro:macro name="link_box2" params="bx by bz roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <box size="${bx} ${by} ${bz}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="white">
+                <color rgba="0.8 0.8 0.8 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <box size="${bx} ${by} ${bz}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${bx*by*bz}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+
+    <xacro:macro name="telapak_tangan" params="le r roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <cylinder length="${le}" radius="${r}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="black">
+                <color rgba="0 0 0 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <cylinder length="${le}" radius="${r}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${le*r}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+    
+<!-- BASE -->
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+	<box size="0 0 0"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+   	<material name = "DarkGray" >
+     		<color rgba = "0.3 0.3 0.3 1.0" />
+      	</material>
+    </visual>
+
+    <collision>
+      <geometry>
+	<box size="0.18 0.12 0.08"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+	<mass value="1"/>
+	<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+  
+    <!-- PERUT -->
+    <link name="servo_perut_roll_1">
+        <xacro:dynamixelmx106 roll="0.0" pitch="0.0" yaw = "1.57" x="0" y="0" z="0"/>
+    </link>
+
+    <link name="servo_perut_roll_2">
+        <xacro:dynamixelmx106 roll="0.0" pitch="0.0" yaw = "-1.57" x="0" y="0" z="0"/>
+    </link>
+
+    <link name="servo_perut_pitch">
+        <xacro:dynamixelmx106 roll="0.0" pitch="0.0" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+
+    <link name="link_perut_yaw">
+        <xacro:link_cylinder le="0.04" r="0.02" roll="0.0" pitch="0.0" yaw ="0" x="0" y="0" z="0.03"/>
+    </link>
+
+    <link name="servo_perut_yaw">
+        <xacro:dynamixelmx106 roll="-1.57" pitch="0.0" yaw = "0" x="0" y="0" z="0.02"/>
+    </link>
+    <!-- PERUT_END -->
+
+    <!-- Kepala -->
+    	
+    <link name="servo_kepala_yaw">
+        <xacro:dynamixelmx28 roll="1.57" pitch="0.0" yaw = "0" x="0" y="0" z="0.0"/>
+    </link>
+    
+    <link name="link_leher">
+    	<xacro:link_cylinder le="0.031" r="0.015" roll="0.0" pitch="0.0" yaw ="0" x="0" y="0" z="0.0	"/>
+   	</link>
+    
+    <link name="servo_kepala_pitch">
+        <xacro:dynamixelmx28 roll="0.00" pitch="0.0" yaw = "0" x="0" y="-0.04" z="0.0"/>
+    </link>
+    
+    <link name="servo_kepala_roll">
+        <xacro:dynamixelmx28 roll="0.00" pitch="0.0" yaw = "0" x="0" y="0.00" z="0.0"/>
+    </link>
+    
+    <link name="kepala">
+    	<xacro:link_box2 bx="0.125" by="0.085" bz="0.042" roll="0.0" pitch="0.0" yaw ="0" x="0" y="0" z="0.07	"/>
+   	</link>
+    
+    
+    <!-- Kepala_END -->
+
+    <!-- Tangan_Kanan -->
+    <link name="servo_bahu_kanan_roll">
+        <xacro:dynamixelmx106 roll="-1.57" pitch="0" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+
+    <link name="servo_bahu_kanan_pitch">
+        <xacro:dynamixelmx106 roll="0" pitch="1.57" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+
+    <link name="link_siku_kanan">
+        <xacro:link_cylinder le="0.195" r="0.01" roll="0.0" pitch="1.57" yaw ="0" x="${0.195/2}" y="0" z="0.0"/>
+    </link>
+
+    <link name="servo_siku_kanan_pitch">
+        <xacro:dynamixelmx106 roll="0" pitch="1.57" yaw = "1.57" x="0" y="0" z="0"/>
+    </link>
+
+    <link name="link_lengan_kanan">
+        <xacro:link_cylinder le="0.15" r="0.01" roll="0.0" pitch="1.57" yaw ="0" x="${-(0.16/2)}" y="0" z="0.0"/>
+    </link>
+
+    <link name="link_telapak_kanan">
+        <xacro:link_box bx="0.015" by="0.07" bz="0.04" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+
+    <link name="telapak_tangan_kanan">
+        <xacro:telapak_tangan le="0.01" r="${0.125/2}" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <!-- Tangan_Kanan_END -->
+
+    <!-- Tangan_Kiri -->
+    <link name="servo_bahu_kiri_roll">
+        <xacro:dynamixelmx106 roll="1.57" pitch="0" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+
+    <link name="servo_bahu_kiri_pitch">
+        <xacro:dynamixelmx106 roll="0" pitch="-1.57" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+
+    <link name="link_siku_kiri">
+        <xacro:link_cylinder le="0.195" r="0.01" roll="0.0" pitch="-1.57" yaw ="0" x="${-(0.195/2)}" y="0" z="0.0"/>
+    </link>
+
+    <link name="servo_siku_kiri_pitch">
+        <xacro:dynamixelmx106 roll="0" pitch="1.57" yaw = "1.57" x="0" y="0" z="0"/>
+    </link>
+
+    <link name="link_lengan_kiri">
+        <xacro:link_cylinder le="0.15" r="0.01" roll="0.0" pitch="-1.57" yaw ="0" x="${(0.16/2)}" y="0" z="0.0"/>
+    </link>
+
+    <link name="link_telapak_kiri">
+        <xacro:link_box bx="0.015" by="0.07" bz="0.04" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+
+    <link name="telapak_tangan_kiri">
+        <xacro:telapak_tangan le="0.01" r="${0.125/2}" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <!-- Tangan_Kiri_END -->
+    
+     <!-- Kepala -->
+    <joint name="perut_to_kepala" type="fixed">
+        <parent link="servo_perut_yaw"/>
+        <child link="servo_kepala_yaw"/> <!--servo_kepala_roll-->
+        <origin rpy="0 0 0" xyz="0 0.0 0.12"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+    
+    <joint name="tflow_32_kyaw" type="revolute"> <!--kepala_yaw-->
+        <parent link="servo_kepala_yaw"/>
+        <child link="link_leher"/> <!--servo_kepala_roll-->
+        <origin rpy="0 0 0" xyz="0 0.0 0.02"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+    
+    <joint name="tflow_33_kpitch" type="revolute"> <!--kepala_pitch-->
+        <parent link="link_leher"/>
+        <child link="servo_kepala_pitch"/> <!--servo_kepala_roll-->
+        <origin rpy="0 0 0" xyz="0 0.0 0.045"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+    </joint>
+    
+    <joint name="joint_kepala_yaw" type="fixed">
+        <parent link="servo_kepala_pitch"/>
+        <child link="servo_kepala_roll"/> <!--servo_kepala_roll-->
+        <origin rpy="0 0 0" xyz="0 0.005 0.0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+    
+    <joint name="tflow_34_kroll" type="revolute"> <!--kepala_roll-->
+        <parent link="servo_kepala_roll"/>
+        <child link="kepala"/> <!--servo_kepala_roll-->
+        <origin rpy="0 0 0" xyz="0 0.0 0.0"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+        
+    <!-- Kepala_END -->
+    
+
+    <!-- PERUT -->
+    <joint name="joint_perut_roll" type="fixed">
+        <parent link="base_link"/>
+        <child link="servo_perut_roll_1"/>
+        <origin rpy="0 0 0" xyz="0.055 0.0 0.14"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <joint name="joint_perut_roll_2" type="fixed">
+        <parent link="base_link"/>
+        <child link="servo_perut_roll_2"/>
+        <origin rpy="0 0 0" xyz="-0.055 0.0 0.14"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <joint name="tflow_13_proll" type="revolute"> <!--perut_roll-->
+        <parent link="servo_perut_roll_1"/>
+        <child link="servo_perut_pitch"/>
+        <origin rpy="0 0 0" xyz="-0.055 0.0 0.05"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <joint name="tflow_14_ppitch" type="revolute"> <!--perut_pitch-->
+        <parent link="servo_perut_pitch"/>
+        <child link="link_perut_yaw"/>
+        <origin rpy="0 0 0" xyz="0 0.0 0.0"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="tflow_15_pyaw" type="revolute"> <!--perut_yaw-->
+        <parent link="link_perut_yaw"/>
+        <child link="servo_perut_yaw"/>
+        <origin rpy="0 0 0" xyz="0.0 0.0 0.05"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <!-- PERUT_END -->
+
+    <!-- Tangan_Kanan -->
+    <joint name="joint_bahu_kanan_roll" type="fixed">
+        <parent link="servo_kepala_yaw"/>
+        <child link="servo_bahu_kanan_roll"/>
+        <origin rpy="0 0 0" xyz="0.08 0.0 0.0"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <joint name="tflow_17_bkroll" type="revolute"> <!--bahu_kanan_roll-->
+        <parent link="servo_bahu_kanan_roll"/>
+        <child link="servo_bahu_kanan_pitch"/>
+        <origin rpy="0 0 0" xyz="0.065 0.0 0.0015"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <joint name="tflow_19_bkyaw" type="revolute"> <!--bahu_kanan_yaw-->
+        <parent link="servo_bahu_kanan_pitch"/>
+        <child link="link_siku_kanan"/>
+        <origin rpy="0 0 0" xyz="0.03 0.0 0.00"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="tflow_23_skyaw" type="revolute"> <!--siku_kanan_yaw-->
+        <parent link="link_siku_kanan"/>
+        <child link="servo_siku_kanan_pitch"/>
+        <origin rpy="0 0 0" xyz="0.195 0.0 0.00"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <joint name="joint_lengan_kanan_yaw" type="fixed">
+        <parent link="servo_siku_kanan_pitch"/>
+        <child link="link_lengan_kanan"/>
+        <origin rpy="0 0 0" xyz="0.16 0.0 0.00"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <joint name="joint_tangan_kanan" type="fixed">
+        <parent link="link_lengan_kanan"/>
+        <child link="link_telapak_kanan"/>
+        <origin rpy="0 0 0" xyz="${0.015/2} 0.0 0.0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+
+    <joint name="tangan_kanan_EOF" type="fixed">
+        <parent link="link_telapak_kanan"/>
+        <child link="telapak_tangan_kanan"/>
+        <origin rpy="0 0 0" xyz="${0.125/2} 0.0 0.02"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+    <!-- Tangan_Kanan_END -->
+
+
+    <!-- Tangan_Kiri -->
+    <joint name="joint_bahu_kiri_yaw" type="fixed">
+        <parent link="servo_kepala_yaw"/>
+        <child link="servo_bahu_kiri_roll"/>
+        <origin rpy="0 0 0" xyz="-0.08 0.0 0.0"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+        </joint>
+
+    <joint name="tflow_16_bkiroll" type="revolute"> <!--bahu_kiri_roll-->
+        <parent link="servo_bahu_kiri_roll"/>
+        <child link="servo_bahu_kiri_pitch"/>
+        <origin rpy="0 0 0" xyz="-0.065 0.0 0.0015"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <joint name="tflow_18_bkiyaw" type="revolute"> <!--bahu_kiri_yaw-->
+        <parent link="servo_bahu_kiri_pitch"/>
+        <child link="link_siku_kiri"/>
+        <origin rpy="0 0 0" xyz="-0.03 0.0 0.00"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="tflow_22_skiyaw" type="revolute"> <!--siku_kiri_yaw-->
+        <parent link="link_siku_kiri"/>
+        <child link="servo_siku_kiri_pitch"/>
+        <origin rpy="0 0 0" xyz="-0.195 0.0 0.00"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <joint name="joint_lengan_kiri_yaw" type="fixed">
+        <parent link="servo_siku_kiri_pitch"/>
+        <child link="link_lengan_kiri"/>
+        <origin rpy="0 0 0" xyz="-0.16 0.0 0.00"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <joint name="joint_tangan_kiri" type="fixed">
+        <parent link="link_lengan_kiri"/>
+        <child link="link_telapak_kiri"/>
+        <origin rpy="0 0 0" xyz="${-(0.015/2)} 0.0 0.0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+
+    <joint name="tangan_kiri_EOF" type="fixed">
+        <parent link="link_telapak_kiri"/>
+        <child link="telapak_tangan_kiri"/>
+        <origin rpy="0 0 0" xyz="${-(0.125/2)} 0.0 0.02"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+    </joint>
+
+    <!-- Tangan_Kiri_END -->
+   
+<!-- KAKI -->
+
+<!-- TEMPAT NUC -->
+     <xacro:macro name="link_nuc" params="bx by bz roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <box size="${bx} ${by} ${bz}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="silver">
+                <color rgba="0.5 0.5 0.5 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <box size="${bx} ${by} ${bz}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${bx*by*bz}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+    
+    <link name="link_nucnuc_a">
+        <xacro:link_nuc bx="0.266681" by="0.18" bz="0.006" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="link_nucnuc_b">
+        <xacro:link_nuc bx="0.266681" by="0.18" bz="0.006" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="link_nucnuc_front">
+        <xacro:link_nuc bx="0.166681" by="0.006" bz="0.07" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="link_nucnuc_back">
+        <xacro:link_nuc bx="0.166681" by="0.006" bz="0.07" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    
+    <joint name="joint_nuc_a" type="fixed">
+        <parent link="base_link"/>
+        <child link="link_nucnuc_a"/>
+        <origin rpy="0 0 0" xyz="0 0 0.09"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+    <joint name="joint_nuc_b" type="fixed">
+        <parent link="base_link"/>
+        <child link="link_nucnuc_b"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+    <joint name="joint_nuc_front" type="fixed">
+        <parent link="base_link"/>
+        <child link="link_nucnuc_front"/>
+        <origin rpy="0 0 0" xyz="0 0.085 0.045"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+    <joint name="joint_nuc_back" type="fixed">
+        <parent link="base_link"/>
+        <child link="link_nucnuc_back"/>
+        <origin rpy="0 0 0" xyz="0 -0.085 0.045"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+
+<!-- KAKI KANAN-->
+
+     <xacro:macro name="joint_inv" params="bx by bz roll pitch yaw x y z">
+        <visual>
+            <geometry>
+                <box size="${bx} ${by} ${bz}"/>
+            </geometry>
+            <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+            <material name="silver">
+                <color rgba="0.5 0.5 0.5 1"/>
+            </material>
+        </visual>
+        <collision>
+          <geometry>
+            <box size="${bx} ${by} ${bz}"/>
+          </geometry>
+          <origin rpy="${roll} ${pitch} ${yaw}" xyz="${x} ${y} ${z}"/>
+        </collision>
+        <inertial>
+            <mass value="${bx*by*bz}"/>
+            <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+        </inertial>
+    </xacro:macro>
+    
+    <link name="servo_11">
+        <xacro:dynamixelmx106 roll="0.0" pitch="0.0" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <link name="gearbox">
+        <xacro:link_cylinder le="0.06" r="0.022" roll="1.57" pitch="0.0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+
+    <link name="jservo_11">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    
+    <joint name="servo_11" type="fixed">
+        <parent link="base_link"/>
+        <child link="servo_11"/>
+        <origin rpy="0 0 0" xyz="0.1033405 -0.03 0.045"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+    <joint name="gearbox" type="fixed">
+        <parent link="servo_11"/>
+        <child link="gearbox"/>
+        <origin rpy="0 0 0" xyz="0 0.05 -0.007"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+	</joint>
+    <joint name="tflow_11_kyaw" type="revolute"> <!--joint_servo_11_yaw-->
+        <parent link="gearbox"/>
+        <child link="jservo_11"/> 
+        <origin rpy="0 0 0" xyz="0 0.0 0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+    
+    <link name="servo_9">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <joint name="servo_9" type="fixed">
+        <parent link="jservo_11"/>
+        <child link="servo_9"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.07"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+  
+    <link name="servo_9_inv">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <joint name="tflow_9_kpitch" type="revolute"> <!--joint_servo_9_pitch-->
+        <parent link="servo_9"/>
+        <child link="servo_9_inv"/> 
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="servo_7">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <joint name="servo_7" type="fixed">
+        <parent link="servo_9_inv"/>
+        <child link="servo_7"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.05"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="servo_7_inv">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <joint name="joint_7_inv" type="fixed">
+        <parent link="servo_7"/>
+        <child link="servo_7_inv"/> 
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="link_7_front">
+        <xacro:link_nuc bx="0.046" by="0.006" bz="0.183" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="-0.093"/>
+    </link>
+    <joint name="tflow_7_kroll" type="revolute"> <!--joint_servo_7_roll-->
+        <parent link="servo_7_inv"/>
+        <child link="link_7_front"/> 
+        <origin rpy="0 0 0" xyz="0 -0.03 -0.025"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+    
+    <link name="joint7x_link">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="-0.033"/>
+    </link>
+    <joint name="joint7x" type="revolute">
+      <parent link="link_7_front"/>
+      <child link="joint7x_link"/>
+      <origin xyz="0 0 -0.17"/>
+      <axis xyz="1 0 0" />
+      <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+      <mimic joint="tflow_7_kroll" multiplier="-1" offset="0" />
+    </joint>
+
+    <link name="servo7x_link">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0.025" z="0"/>
+    </link>
+    <joint name="servo7x" type="fixed">
+        <parent link="joint7x_link"/>
+        <child link="servo7x_link"/>
+        <origin rpy="0 0 0" xyz="0 0.001 -0.02"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+    
+    <link name="servo5_link">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0.025" z="0"/>
+    </link>
+    <joint name="servo5" type="fixed">
+        <parent link="servo7x_link"/>
+        <child link="servo5_link"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.05"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint> 
+
+    <link name="servo_5">
+        <xacro:link_nuc bx="0.046" by="0.006" bz="0.183" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="-0.093"/>
+    </link>
+    <joint name="tflow_5_kroll" type="revolute"> <!--joint_servo_5_roll-->
+        <parent link="servo5_link"/>
+        <child link="servo_5"/> 
+        <origin rpy="0 0 0" xyz="0 0 -0.027"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="joint5x_link">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="-0.033"/>
+    </link>
+    <joint name="joint5x" type="revolute">
+      <parent link="servo_5"/>
+      <child link="joint5x_link"/>
+      <origin xyz="0 0 -0.17"/>
+      <axis xyz="1 0 0" />
+      <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+      <mimic joint="tflow_5_kroll" multiplier="-1" offset="0" />
+    </joint>
+
+    <link name="servo5x_link">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0.025" z="0"/>
+    </link>
+    <joint name="servo5x" type="fixed">
+        <parent link="joint5x_link"/>
+        <child link="servo5x_link"/>
+        <origin rpy="0 0 0" xyz="0 0.001 -0.02"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="servo_1">
+        <xacro:dynamixelmx106 roll="0" pitch="1.57" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <link name="servo_bawahyaw">
+        <xacro:dynamixelmx106 roll="1.57" pitch="0" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <link name="servo_bawahyawx">
+        <xacro:dynamixelmx106 roll="1.57" pitch="0" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <link name="gearbox1">
+        <xacro:link_cylinder le="0" r="0" roll="0" pitch="0.0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="gearboxlala">
+        <xacro:link_cylinder le="0.06" r="0.022" roll="1.57" pitch="0.0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="jservo_1">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+
+    <joint name="servo_bawahyaw" type="fixed">
+        <parent link="servo5x_link"/>
+        <child link="servo_bawahyaw"/>
+        <origin rpy="0 0 0" xyz="0.025 0.021 -0.05"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+	</joint>
+    <joint name="servo_bawahyawx" type="fixed">
+        <parent link="servo_bawahyaw"/>
+        <child link="servo_bawahyawx"/>
+        <origin rpy="0 0 0" xyz="-0.045 0 0"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+	</joint>
+    <joint name="tflow_3_kroll" type="revolute"> <!--joint_servo_kaki_roll-->
+        <parent link="servo_bawahyawx"/>
+        <child link="gearbox1"/> 
+        <origin rpy="0 0 0" xyz="0 0.0 0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+    <joint name="gearboxlala" type="fixed">
+        <parent link="gearbox1"/>
+        <child link="gearboxlala"/>
+        <origin rpy="0 0 0" xyz="0.02 0 -0.045"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+    <joint name="tflow_1_kpitch" type="revolute">
+        <parent link="gearboxlala"/>
+        <child link="jservo_1"/> 
+        <origin rpy="0 0 0" xyz="0 0.0 0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+    </joint>
+    <joint name="servo_1" type="fixed">
+        <parent link="jservo_1"/>
+        <child link="servo_1"/>
+        <origin rpy="0 0 0" xyz="0.01 -0.055 0"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+
+
+
+
+
+
+    <link name="fotd1">
+        <xacro:telapak le="0.01" r="0.0621125" roll="0" pitch="0" yaw ="1.57" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="fotb1">
+        <xacro:telapak le="0.01" r="0.0621125" roll="0" pitch="0" yaw ="1.57" x="0" y="0" z="0.0"/>
+    </link>
+    
+    <joint name="footd1" type="fixed">
+        <parent link="servo_1"/>
+        <child link="fotd1"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.023"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+	</joint>
+    <joint name="footb1" type="fixed">
+        <parent link="fotd1"/>
+        <child link="fotb1"/>
+        <origin rpy="0 0 0" xyz="0 0.07 0"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+	</joint>
+    
+
+<!-- KAKI KIRI-->
+    
+    <link name="servo_12">
+        <xacro:dynamixelmx106 roll="0.0" pitch="0.0" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <link name="gearboxki">
+        <xacro:link_cylinder le="0.06" r="0.022" roll="1.57" pitch="0.0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="jservo_12">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    
+    <joint name="servo_12" type="fixed">
+        <parent link="base_link"/>
+        <child link="servo_12"/>
+        <origin rpy="0 0 0" xyz="-0.1033405 -0.03 0.045"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+    <joint name="gearboxki" type="fixed">
+        <parent link="servo_12"/>
+        <child link="gearboxki"/>
+        <origin rpy="0 0 0" xyz="0 0.05 -0.007"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+	</joint>
+    <joint name="tflow_12_kiyaw" type="revolute"> <!--joint_servo_12_yaw-->
+        <parent link="gearboxki"/>
+        <child link="jservo_12"/> 
+        <origin rpy="0 0 0" xyz="0 0.0 0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <link name="servo_10">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <joint name="servo_10" type="fixed">
+        <parent link="jservo_12"/>
+        <child link="servo_10"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.07"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+    
+    <link name="servo_10_inv">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <joint name="tflow_10_kipitch" type="revolute"> <!--joint_servo_10_pitch-->
+        <parent link="servo_10"/>
+        <child link="servo_10_inv"/> 
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <link name="servo_8">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <joint name="servo_8" type="fixed">
+        <parent link="servo_10_inv"/>
+        <child link="servo_8"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.05"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+    
+    <link name="servo_8_inv">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <joint name="joint_8_inv" type="fixed">
+        <parent link="servo_8"/>
+        <child link="servo_8_inv"/> 
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="link_8_front">
+        <xacro:link_nuc bx="0.046" by="0.006" bz="0.183" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="-0.093"/>
+    </link>
+    <joint name="tflow_8_kiroll" type="revolute"> <!--joint_servo_8_roll-->
+        <parent link="servo_8_inv"/>
+        <child link="link_8_front"/> 
+        <origin rpy="0 0 0" xyz="0 -0.03 -0.025"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <link name="joint8x_link">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="-0.033"/>
+    </link>
+    <joint name="joint8x" type="revolute">
+      <parent link="link_8_front"/>
+      <child link="joint8x_link"/>
+      <origin xyz="0 0 -0.17"/>
+      <axis xyz="1 0 0" />
+      <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+      <mimic joint="tflow_8_kiroll" multiplier="-1" offset="0" />
+    </joint>
+
+    <link name="servo8x_link">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0.025" z="0"/>
+    </link>
+    <joint name="servo8x" type="fixed">
+        <parent link="joint8x_link"/>
+        <child link="servo8x_link"/>
+        <origin rpy="0 0 0" xyz="0 0.001 -0.02"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="servo6_link">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0.025" z="0"/>
+    </link>
+    <joint name="servo6" type="fixed">
+        <parent link="servo8x_link"/>
+        <child link="servo6_link"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.05"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint> 
+
+    <link name="servo_6">
+        <xacro:link_nuc bx="0.046" by="0.006" bz="0.183" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="-0.093"/>
+    </link>
+    <joint name="tflow_6_kiroll" type="revolute"> <!--joint_servo_6_roll-->
+        <parent link="servo6_link"/>
+        <child link="servo_6"/> 
+        <origin rpy="0 0 0" xyz="0 0 -0.027"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint> 
+
+ <link name="joint6x_link">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="-0.033"/>
+    </link>
+    <joint name="joint6x" type="revolute">
+      <parent link="servo_6"/>
+      <child link="joint6x_link"/>
+      <origin xyz="0 0 -0.17"/>
+      <axis xyz="1 0 0" />
+      <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+      <mimic joint="tflow_6_kiroll" multiplier="-1" offset="0" />
+    </joint>
+
+    <link name="servo6x_link">
+        <xacro:dynamixelmx106 roll="1.57" pitch = "1.57" yaw = "0" x="0" y="0.025" z="0"/>
+    </link>
+    <joint name="servo6x" type="fixed">
+        <parent link="joint6x_link"/>
+        <child link="servo6x_link"/>
+        <origin rpy="0 0 0" xyz="0 0.001 -0.02"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="servo_2">
+        <!--<xacro:dynamixelmx106 roll="0" pitch="0" yaw = "1.57" x="0" y="0" z="0"/>-->
+        <xacro:dynamixelmx106 roll="0" pitch="1.57" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <link name="servo_bawah2yaw">
+        <xacro:dynamixelmx106 roll="1.57" pitch="0" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <link name="servo_bawah2yawx">
+        <xacro:dynamixelmx106 roll="1.57" pitch="0" yaw = "0" x="0" y="0" z="0"/>
+    </link>
+    <link name="gearbox2">
+        <xacro:link_cylinder le="0" r="0" roll="0" pitch="0.0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="gearbox2lala">
+        <xacro:link_cylinder le="0.06" r="0.022" roll="1.57" pitch="0.0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="jservo_2">
+        <xacro:joint_inv bx="0" by="0" bz="0" roll="0.0" pitch="0" yaw ="0" x="0" y="0" z="0.0"/>
+    </link>
+    <joint name="servo_bawah2yaw" type="fixed">
+        <parent link="servo6x_link"/>
+        <child link="servo_bawah2yaw"/>
+        <origin rpy="0 0 0" xyz="0.025 0.021 -0.05"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+	</joint>
+    <joint name="servo_bawah2yawx" type="fixed">
+        <parent link="servo_bawah2yaw"/>
+        <child link="servo_bawah2yawx"/>
+        <origin rpy="0 0 0" xyz="-0.045 0 0"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 1" />
+	</joint>
+
+    <joint name="tflow_4_kiroll" type="revolute"> <!--joint_servo_kaki_yawki-->
+        <parent link="servo_bawah2yawx"/>
+        <child link="gearbox2"/> 
+        <origin rpy="0 0 0" xyz="0 0.0 0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="1 0 0" />
+    </joint>
+
+    <joint name="gearbox2lala" type="fixed">
+        <parent link="gearbox2"/>
+        <child link="gearbox2lala"/>
+        <origin rpy="0 0 0" xyz="0.02 0 -0.045"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <joint name="tflow_2_kipitch" type="revolute"> <!--joint_servo_2_pitch-->
+        <parent link="gearbox2lala"/>
+        <child link="jservo_2"/> 
+        <origin rpy="0 0 0" xyz="0 0.0 0"/>
+        <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 1 0" />
+    </joint>
+
+    <joint name="servo_2" type="fixed">
+        <parent link="jservo_2"/>
+        <child link="servo_2"/>
+        <origin rpy="0 0 0" xyz="0.01 -0.055 0"/>
+        <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+    </joint>
+
+    <link name="fotd2">
+        <xacro:telapak le="0.01" r="0.0621125" roll="0" pitch="0" yaw ="1.57" x="0" y="0" z="0.0"/>
+    </link>
+    <link name="fotb2">
+        <xacro:telapak le="0.01" r="0.0621125" roll="0" pitch="0" yaw ="1.57" x="0" y="0" z="0.0"/>
+    </link>
+    
+    <joint name="footd2" type="fixed">
+        <parent link="servo_2"/>
+        <child link="fotd2"/>
+        <origin rpy="0 0 0" xyz="0 0 -0.023"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+	</joint>
+    <joint name="footb2" type="fixed">
+        <parent link="fotd2"/>
+        <child link="fotb2"/>
+        <origin rpy="0 0 0" xyz="0 0.07 0"/>
+        <limit effort="300" velocity="0.1" lower="-2.00" upper="2.00"/>
+        <dynamics damping="50" friction="1"/>
+        <axis xyz="0 0 0" />
+	</joint>
+	
+</robot>

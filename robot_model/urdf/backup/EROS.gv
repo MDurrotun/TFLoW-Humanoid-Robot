@@ -1,0 +1,122 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"servo_hip_yaw_kanan" [label="servo_hip_yaw_kanan"];
+"servo_hip_pitch_kanan" [label="servo_hip_pitch_kanan"];
+"servo_hip_roll_kanan" [label="servo_hip_roll_kanan"];
+"link_paha_kanan" [label="link_paha_kanan"];
+"servo_lutut_kanan" [label="servo_lutut_kanan"];
+"link_betis_kanan" [label="link_betis_kanan"];
+"servo_engkle_roll_kanan" [label="servo_engkle_roll_kanan"];
+"servo_engkle_pitch_kanan" [label="servo_engkle_pitch_kanan"];
+"telapak_kaki_kanan" [label="telapak_kaki_kanan"];
+"telapak_kaki_kanan_eof" [label="telapak_kaki_kanan_eof"];
+"servo_hip_yaw_kiri" [label="servo_hip_yaw_kiri"];
+"servo_hip_pitch_kiri" [label="servo_hip_pitch_kiri"];
+"servo_hip_roll_kiri" [label="servo_hip_roll_kiri"];
+"link_paha_kiri" [label="link_paha_kiri"];
+"servo_lutut_kiri" [label="servo_lutut_kiri"];
+"link_betis_kiri" [label="link_betis_kiri"];
+"servo_engkle_roll_kiri" [label="servo_engkle_roll_kiri"];
+"servo_engkle_pitch_kiri" [label="servo_engkle_pitch_kiri"];
+"telapak_kaki_kiri" [label="telapak_kaki_kiri"];
+"telapak_kaki_kiri_eof" [label="telapak_kaki_kiri_eof"];
+"leher" [label="leher"];
+"servo_bahu_roll_kanan" [label="servo_bahu_roll_kanan"];
+"link_servo_bahu_kanan" [label="link_servo_bahu_kanan"];
+"servo_bahu_pitch_kanan" [label="servo_bahu_pitch_kanan"];
+"link_siku_kanan" [label="link_siku_kanan"];
+"servo_siku_pitch_kanan" [label="servo_siku_pitch_kanan"];
+"lengan_bawah_kanan" [label="lengan_bawah_kanan"];
+"ujung_tangan_kanan" [label="ujung_tangan_kanan"];
+"servo_bahu_roll_kiri" [label="servo_bahu_roll_kiri"];
+"link_servo_bahu_kiri" [label="link_servo_bahu_kiri"];
+"servo_bahu_pitch_kiri" [label="servo_bahu_pitch_kiri"];
+"link_siku_kiri" [label="link_siku_kiri"];
+"servo_siku_pitch_kiri" [label="servo_siku_pitch_kiri"];
+"lengan_bawah_kiri" [label="lengan_bawah_kiri"];
+"ujung_tangan_kiri" [label="ujung_tangan_kiri"];
+"servo_leher_y" [label="servo_leher_y"];
+"kepala" [label="kepala"];
+"kamera" [label="kamera"];
+"perut" [label="perut"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "base_to_hip_kanan" [label="xyz: 0.063 0 0 \nrpy: 0 -0 0"]
+"base_to_hip_kanan" -> "servo_hip_yaw_kanan"
+"servo_hip_yaw_kanan" -> "hip_kanan_yaw" [label="xyz: 0 0 -0.06 \nrpy: 0 -0 0"]
+"hip_kanan_yaw" -> "servo_hip_pitch_kanan"
+"servo_hip_pitch_kanan" -> "hip_kanan_pitch" [label="xyz: 0 0.02 0 \nrpy: 0 -0 0"]
+"hip_kanan_pitch" -> "servo_hip_roll_kanan"
+"servo_hip_roll_kanan" -> "hip_kanan_roll" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"hip_kanan_roll" -> "link_paha_kanan"
+"link_paha_kanan" -> "link_servo_lutut_kanan" [label="xyz: 0 0 -0.1 \nrpy: 0 -0 0"]
+"link_servo_lutut_kanan" -> "servo_lutut_kanan"
+"servo_lutut_kanan" -> "lutut_kanan_roll" [label="xyz: 0 0 -0.03 \nrpy: 0 -0 0"]
+"lutut_kanan_roll" -> "link_betis_kanan"
+"link_betis_kanan" -> "engkle_kanan_roll" [label="xyz: 0 0 -0.1 \nrpy: 0 -0 0"]
+"engkle_kanan_roll" -> "servo_engkle_roll_kanan"
+"servo_engkle_roll_kanan" -> "link_servo_engkle_kanan" [label="xyz: 0 -0.051 0 \nrpy: 0 -0 0"]
+"link_servo_engkle_kanan" -> "servo_engkle_pitch_kanan"
+"servo_engkle_pitch_kanan" -> "telapak_kaki_kanan_pitch" [label="xyz: 0 0.025 0 \nrpy: 0 -0 0"]
+"telapak_kaki_kanan_pitch" -> "telapak_kaki_kanan"
+"telapak_kaki_kanan" -> "kaki_kanan_eof" [label="xyz: 0 0 -0.055 \nrpy: 0 -0 0"]
+"kaki_kanan_eof" -> "telapak_kaki_kanan_eof"
+"base_link" -> "base_to_hip_kiri" [label="xyz: -0.063 0 0 \nrpy: 0 -0 0"]
+"base_to_hip_kiri" -> "servo_hip_yaw_kiri"
+"servo_hip_yaw_kiri" -> "hip_kiri_yaw" [label="xyz: 0 0 -0.06 \nrpy: 0 -0 0"]
+"hip_kiri_yaw" -> "servo_hip_pitch_kiri"
+"servo_hip_pitch_kiri" -> "hip_kiri_pitch" [label="xyz: 0 0.02 0 \nrpy: 0 -0 0"]
+"hip_kiri_pitch" -> "servo_hip_roll_kiri"
+"servo_hip_roll_kiri" -> "hip_kiri_roll" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"hip_kiri_roll" -> "link_paha_kiri"
+"link_paha_kiri" -> "link_servo_lutut_kiri" [label="xyz: 0 0 -0.1 \nrpy: 0 -0 0"]
+"link_servo_lutut_kiri" -> "servo_lutut_kiri"
+"servo_lutut_kiri" -> "lutut_kiri_roll" [label="xyz: 0 0 -0.03 \nrpy: 0 -0 0"]
+"lutut_kiri_roll" -> "link_betis_kiri"
+"link_betis_kiri" -> "engkle_kiri_roll" [label="xyz: 0 0 -0.1 \nrpy: 0 -0 0"]
+"engkle_kiri_roll" -> "servo_engkle_roll_kiri"
+"servo_engkle_roll_kiri" -> "link_servo_engkle_kiri" [label="xyz: 0 -0.051 0 \nrpy: 0 -0 0"]
+"link_servo_engkle_kiri" -> "servo_engkle_pitch_kiri"
+"servo_engkle_pitch_kiri" -> "telapak_kaki_kiri_pitch" [label="xyz: 0 0.025 0 \nrpy: 0 -0 0"]
+"telapak_kaki_kiri_pitch" -> "telapak_kaki_kiri"
+"telapak_kaki_kiri" -> "kaki_kiri_eof" [label="xyz: 0 0 -0.055 \nrpy: 0 -0 0"]
+"kaki_kiri_eof" -> "telapak_kaki_kiri_eof"
+"base_link" -> "leher_to_base" [label="xyz: 0 0 0.162 \nrpy: 0 -0 0"]
+"leher_to_base" -> "leher"
+"leher" -> "leher_to_bahu_kanan" [label="xyz: 0.051 0 0 \nrpy: 0 -0 0"]
+"leher_to_bahu_kanan" -> "servo_bahu_roll_kanan"
+"servo_bahu_roll_kanan" -> "bahu_kanan_roll" [label="xyz: 0.03 0 0 \nrpy: 0 -0 0"]
+"bahu_kanan_roll" -> "link_servo_bahu_kanan"
+"link_servo_bahu_kanan" -> "bahu_kanan_pitch" [label="xyz: 0.01 0 -0.015 \nrpy: 0 -0 0"]
+"bahu_kanan_pitch" -> "servo_bahu_pitch_kanan"
+"servo_bahu_pitch_kanan" -> "link_lengan_atas_kanan" [label="xyz: 0.061 0 0 \nrpy: 0 -0 0"]
+"link_lengan_atas_kanan" -> "link_siku_kanan"
+"link_siku_kanan" -> "siku_kanan_yaw" [label="xyz: 0.07 0 0 \nrpy: 0 -0 0"]
+"siku_kanan_yaw" -> "servo_siku_pitch_kanan"
+"servo_siku_pitch_kanan" -> "link_lengan_bawah_kanan" [label="xyz: 0.061 0 0 \nrpy: 0 -0 0"]
+"link_lengan_bawah_kanan" -> "lengan_bawah_kanan"
+"lengan_bawah_kanan" -> "tangan_kanan_eof" [label="xyz: 0.12 0 0 \nrpy: 0 -0 0"]
+"tangan_kanan_eof" -> "ujung_tangan_kanan"
+"leher" -> "leher_to_bahu_kiri" [label="xyz: -0.051 0 0 \nrpy: 0 -0 0"]
+"leher_to_bahu_kiri" -> "servo_bahu_roll_kiri"
+"servo_bahu_roll_kiri" -> "bahu_kiri_roll" [label="xyz: -0.03 0 0 \nrpy: 0 -0 0"]
+"bahu_kiri_roll" -> "link_servo_bahu_kiri"
+"link_servo_bahu_kiri" -> "bahu_kiri_pitch" [label="xyz: -0.01 0 -0.015 \nrpy: 0 -0 0"]
+"bahu_kiri_pitch" -> "servo_bahu_pitch_kiri"
+"servo_bahu_pitch_kiri" -> "link_lengan_atas_kiri" [label="xyz: -0.061 0 0 \nrpy: 0 -0 0"]
+"link_lengan_atas_kiri" -> "link_siku_kiri"
+"link_siku_kiri" -> "siku_kiri_yaw" [label="xyz: -0.07 0 0 \nrpy: 0 -0 0"]
+"siku_kiri_yaw" -> "servo_siku_pitch_kiri"
+"servo_siku_pitch_kiri" -> "link_lengan_bawah_kiri" [label="xyz: -0.061 0 0 \nrpy: 0 -0 0"]
+"link_lengan_bawah_kiri" -> "lengan_bawah_kiri"
+"lengan_bawah_kiri" -> "tangan_kiri_eof" [label="xyz: -0.12 0 0 \nrpy: 0 -0 0"]
+"tangan_kiri_eof" -> "ujung_tangan_kiri"
+"leher" -> "leher_x" [label="xyz: 0 0 0.05 \nrpy: 0 -0 0"]
+"leher_x" -> "servo_leher_y"
+"servo_leher_y" -> "leher_y" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"leher_y" -> "kepala"
+"kepala" -> "kamera_eof" [label="xyz: 0 0 0.046 \nrpy: -1.57 1.57 -6.9709e-14"]
+"kamera_eof" -> "kamera"
+"base_link" -> "perut_to_base" [label="xyz: 0 0 0.08 \nrpy: 0 -0 0"]
+"perut_to_base" -> "perut"
+}

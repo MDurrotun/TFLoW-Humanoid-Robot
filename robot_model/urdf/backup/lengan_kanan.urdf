@@ -1,0 +1,212 @@
+<?xml version="1.0"?>
+<robot name="pan_tilt">
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+	<cylinder length="0.01" radius="0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+	<cylinder length="0.03" radius="0.2"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+	<mass value="1"/>
+	<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="pan_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="pan_link"/>
+    <origin xyz="0 0 0"/>
+    <axis xyz="0 0 1" />
+    <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    <dynamics damping="50" friction="1"/>
+  </joint>
+
+  <link name="pan_link">
+    <visual>
+      <geometry>
+	<cylinder length="0.5" radius="0.02"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.25"/>
+      <material name="red">
+        <color rgba="0 0 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+	<cylinder length="0.5" radius="0.02"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.1"/>
+    </collision>
+    <inertial>
+	<mass value="1"/>
+	<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="servo_bahu_joint" type="fixed">
+    <parent link="pan_link"/>
+    <child link="servo_bahu_rot"/>
+    <origin xyz="0 0 0.5"/>
+    <axis xyz="0 1 0" />
+  </joint>
+
+  <link name="servo_bahu_rot">
+    <visual>
+      <geometry>
+	<box size="0.035 0.035 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.025"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+	<box size="0.035 0.035 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.025"/>
+    </collision>
+    <inertial>
+	<mass value="1"/>
+	<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+<link name="horn_bahu_rot">
+    <visual>
+      <geometry>
+	<cylinder length="0.003" radius="0.02"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="yellow">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+
+    <collision>
+      <geometry>
+	<cylinder length="0.005" radius="0.02"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+    </collision>
+    <inertial>
+	<mass value="1"/>
+	<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+  <joint name="bahu_joint_rot" type="revolute">
+    <parent link="servo_bahu_rot"/>
+    <child link="horn_bahu_rot"/>
+    <origin rpy="0 1.57 0" xyz="0.02 0 0.025"/>
+    <axis xyz="0 0 1" />
+    <limit effort="300" velocity="0.1" lower="-3.14" upper="3.14"/>
+    <dynamics damping="50" friction="1"/>
+  </joint>
+
+  <link name="servo_bahu_up">
+    <visual>
+      <geometry>
+	<box size="0.035 0.035 0.1"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+	<box size="0.035 0.035 0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+    </collision>
+    <inertial>
+	<mass value="1"/>
+	<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+ <joint name="bahu_joint_up" type="revolute">
+    <parent link="horn_bahu_rot"/>
+    <child link="servo_bahu_up"/>
+    <origin rpy="0 0 0" xyz="0 0 0.02"/>
+    <axis xyz="0 -1 0" />
+    <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+    <dynamics damping="50" friction="1"/>
+  </joint>
+
+  <link name="siku_link">
+    <visual>
+      <geometry>
+	<box size="0.035 0.035 0.185"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0925"/>
+      <material name="red">
+        <color rgba="1 1 0 1"/>
+      </material>
+    </visual>
+    <collision>
+      <geometry>
+	<box size="0.035 0.035 0.185"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0925"/>
+    </collision>
+    <inertial>
+	<mass value="1"/>
+	<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+    </inertial>
+  </link>
+
+ <joint name="siku_joint" type="revolute">
+    <parent link="servo_bahu_up"/>
+    <child link="siku_link"/>
+    <origin rpy="0 0 0" xyz="0 0 0.1125"/>
+    <axis xyz="1 0 0" />
+    <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+    <dynamics damping="50" friction="1"/>
+  </joint>
+
+<link name="eoflengan">
+  <visual>
+    <geometry>
+      <box size="0.035 0.035 0.035"/>
+    </geometry>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <material name="red">
+      <color rgba="1 1 0 1"/>
+    </material>
+  </visual>
+  <collision>
+    <geometry>
+      <box size="0.035 0.035 0.035"/>
+    </geometry>
+    <origin rpy="0 0 0" xyz="0 0 0.0"/>
+  </collision>
+  <inertial>
+      <mass value="1"/>
+      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+  </inertial>
+</link>
+
+<joint name="end_joint" type="fixed">
+   <parent link="siku_link"/>
+   <child link="eoflengan"/>
+   <origin rpy="0 0 0" xyz="0 0 0.185"/>
+   <axis xyz="1 0 0" />
+   <limit effort="300" velocity="0.1" lower="-1.57" upper="1.57"/>
+   <dynamics damping="50" friction="1"/>
+ </joint>
+
+</robot>

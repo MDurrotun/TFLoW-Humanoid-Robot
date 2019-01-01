@@ -1,0 +1,7 @@
+float64[21] pos
+float64[21] loadServo
+float64[21] outMimo
+float64 selisih
+float64 dataX
+float64 dataY
+float64 dataZ

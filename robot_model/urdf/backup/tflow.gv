@@ -1,0 +1,59 @@
+digraph G {
+node [shape=box];
+"base_link" [label="base_link"];
+"servo_hip_yaw_kanan" [label="servo_hip_yaw_kanan"];
+"servo_hip_pitch_kanan" [label="servo_hip_pitch_kanan"];
+"servo_hip_roll_kanan" [label="servo_hip_roll_kanan"];
+"link_paha_kanan" [label="link_paha_kanan"];
+"servo_lutut_kanan" [label="servo_lutut_kanan"];
+"link_betis_kanan" [label="link_betis_kanan"];
+"servo_engkle_roll_kanan" [label="servo_engkle_roll_kanan"];
+"servo_engkle_pitch_kanan" [label="servo_engkle_pitch_kanan"];
+"telapak_kaki_kanan" [label="telapak_kaki_kanan"];
+"telapak_kaki_kanan_eof" [label="telapak_kaki_kanan_eof"];
+"servo_hip_yaw_kiri" [label="servo_hip_yaw_kiri"];
+"servo_hip_pitch_kiri" [label="servo_hip_pitch_kiri"];
+"servo_hip_roll_kiri" [label="servo_hip_roll_kiri"];
+"link_paha_kiri" [label="link_paha_kiri"];
+"servo_lutut_kiri" [label="servo_lutut_kiri"];
+"servo_perut_pitch" [label="servo_perut_pitch"];
+"servo_perut_roll" [label="servo_perut_roll"];
+"badan_atas" [label="badan_atas"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"base_link" -> "base_to_hip_kanan" [label="xyz: 0.053 0 0 \nrpy: 0 -0 0"]
+"base_to_hip_kanan" -> "servo_hip_yaw_kanan"
+"servo_hip_yaw_kanan" -> "7.hip_kanan_yaw" [label="xyz: 0 0 -0.06 \nrpy: 0 -0 0"]
+"7.hip_kanan_yaw" -> "servo_hip_pitch_kanan"
+"servo_hip_pitch_kanan" -> "9.hip_kanan_pitch" [label="xyz: 0 0.02 0 \nrpy: 0 -0 0"]
+"9.hip_kanan_pitch" -> "servo_hip_roll_kanan"
+"servo_hip_roll_kanan" -> "11.hip_kanan_roll" [label="xyz: 0 0 -0.01 \nrpy: 0 -0 0"]
+"11.hip_kanan_roll" -> "link_paha_kanan"
+"link_paha_kanan" -> "link_servo_lutut_kanan" [label="xyz: 0 0 -0.15 \nrpy: 0 -0 0"]
+"link_servo_lutut_kanan" -> "servo_lutut_kanan"
+"servo_lutut_kanan" -> "13.lutut_kanan_roll" [label="xyz: 0 0 -0.022 \nrpy: 0 -0 0"]
+"13.lutut_kanan_roll" -> "link_betis_kanan"
+"link_betis_kanan" -> "15.engkle_kanan_roll" [label="xyz: 0 0 -0.15 \nrpy: 0 -0 0"]
+"15.engkle_kanan_roll" -> "servo_engkle_roll_kanan"
+"servo_engkle_roll_kanan" -> "link_servo_engkle_kanan" [label="xyz: 0 -0.051 0 \nrpy: 0 -0 0"]
+"link_servo_engkle_kanan" -> "servo_engkle_pitch_kanan"
+"servo_engkle_pitch_kanan" -> "17.telapak_kaki_kanan_pitch" [label="xyz: 0 0.025 0 \nrpy: 0 -0 0"]
+"17.telapak_kaki_kanan_pitch" -> "telapak_kaki_kanan"
+"telapak_kaki_kanan" -> "kaki_kanan_eof" [label="xyz: 0 0 -0.055 \nrpy: 0 -0 0"]
+"kaki_kanan_eof" -> "telapak_kaki_kanan_eof"
+"base_link" -> "base_to_hip_kiri" [label="xyz: -0.053 0 0 \nrpy: 0 -0 0"]
+"base_to_hip_kiri" -> "servo_hip_yaw_kiri"
+"servo_hip_yaw_kiri" -> "8.hip_kiri_yaw" [label="xyz: 0 0 -0.06 \nrpy: 0 -0 0"]
+"8.hip_kiri_yaw" -> "servo_hip_pitch_kiri"
+"servo_hip_pitch_kiri" -> "10.hip_kiri_pitch" [label="xyz: 0 0.02 0 \nrpy: 0 -0 0"]
+"10.hip_kiri_pitch" -> "servo_hip_roll_kiri"
+"servo_hip_roll_kiri" -> "12.hip_kiri_roll" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"12.hip_kiri_roll" -> "link_paha_kiri"
+"link_paha_kiri" -> "link_servo_lutut_kiri" [label="xyz: 0 0 -0.15 \nrpy: 0 -0 0"]
+"link_servo_lutut_kiri" -> "servo_lutut_kiri"
+"base_link" -> "joint_perut_pitch" [label="xyz: 0 -0.01 0.061 \nrpy: 0 -0 0"]
+"joint_perut_pitch" -> "servo_perut_pitch"
+"servo_perut_pitch" -> "servo_joint_perut_roll" [label="xyz: 0 0.05 0 \nrpy: 0 -0 0"]
+"servo_joint_perut_roll" -> "servo_perut_roll"
+"servo_perut_roll" -> "joint_perut_roll" [label="xyz: 0 0 0.0451 \nrpy: 0 -0 0"]
+"joint_perut_roll" -> "badan_atas"
+}

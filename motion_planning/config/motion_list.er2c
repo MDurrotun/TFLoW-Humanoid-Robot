@@ -1,0 +1,13 @@
+walking_list:
+    min: 0
+    max: 20
+    motion_0:  {motion: 0, sx: 0, sy: 200, sz: 0, sh: 0, sxg: 0, syg: 0, szg: 0, seh: 0, abody: 1, t: 1}
+    motion_10: {motion: 10, sx: 0, sy: 185, sz: 20, sh: 0, sxg: 0, syg: 0, szg: -2, seh: 0, abody: 1, t: 9}
+    motion_11: {motion: 11, sx: 0, sy: 70, sz: 20, sh: 0, sxg: 0, syg: 0, szg: 0, seh: 0, abody: 1, t: 11}
+    motion_12: {motion: 12, sx: 0, sy: 60, sz: 20, sh: 0, sxg: 0, syg: 0, szg: 0, seh: 0, abody: 1, t: 11}
+    motion_13: {motion: 13, sx: 0, sy: 50, sz: 20, sh: 0, sxg: 0, syg: 0, szg: 0, seh: 0, abody: 1, t: 11}
+    motion_14: {motion: 14, sx: 0, sy: 40, sz: 20, sh: 0, sxg: 0, syg: 0, szg: 0, seh: 0, abody: 1, t: 11}
+    motion_15: {motion: 15, sx: 0, sy: 30, sz: 20, sh: 0, sxg: 0, syg: 0, szg: 0, seh: 0, abody: 1, t: 11}
+    motion_19: {motion: 19, sx: 0, sy: 0, sz: 15, sh: 0, sxg: 0, syg: 0, szg: 0, seh: 0, abody: 1, t: 6}
+    motion_20: {motion: 20, sx: 0, sy: 175, sz: 0, 2h: 0, sxg: 0, syg: 0, szg: 0, seh: 0, abody: 1, t: 6}
+
